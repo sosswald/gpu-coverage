@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<package>
+  <name>gpu_coverage</name>
+  <version>0.1.0</version>
+  <description>GPU-accelerated coverage of articulated objects</description>
+
+  <maintainer email="sosswald@cs.uni-bonn.de">Stefan Osswald</maintainer>
+
+  <license>BSD</license>
+
+  <author email="sosswald@cs.uni-bonn.de">Stefan Osswald</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>assimp</build_depend>
+  <build_depend>opengl</build_depend>
+  <build_depend>libopencv-dev</build_depend>
+  <run_depend>assimp</run_depend>
+  <run_depend>opengl</run_depend>
+  <run_depend>libopencv-dev</run_depend>
+</package>

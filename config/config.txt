@@ -1,0 +1,17 @@
+costCameraHeightChange 0.1
+costDistance 0.1
+externalCamera Camera
+file models/cupboard.dae
+floor floor
+floorProjection FloorProjection
+gainFactor 0.0001
+minCameraHeight 0.6
+maxCameraHeight 0.5
+panoCamera ( Camera_001 Camera_002 )
+panoOutputFormat EQUIRECTANGULAR
+panoSemantic true
+projectionPlane Plane
+renderToCubemap true
+robotCamera Camera
+target target
+tesselate false
