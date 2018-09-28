@@ -1,0 +1,8 @@
+<map id="gpu_coverage::AbstractTask" name="gpu_coverage::AbstractTask">
+<area shape="rect" id="node2" href="$classgpu__coverage_1_1BenchmarkTask.html" title="gpu_coverage::BenchmarkTask" alt="" coords="255,5,462,32"/>
+<area shape="rect" id="node3" href="$classgpu__coverage_1_1HillclimbingTask.html" title="gpu_coverage::HillclimbingTask" alt="" coords="255,56,462,83"/>
+<area shape="rect" id="node4" href="$classgpu__coverage_1_1RandomSearchTask.html" title="gpu_coverage::RandomSearchTask" alt="" coords="243,107,474,133"/>
+<area shape="rect" id="node5" href="$classgpu__coverage_1_1UtilityAnimationTask.html" title="gpu_coverage::UtilityAnimationTask" alt="" coords="243,157,475,184"/>
+<area shape="rect" id="node6" href="$classgpu__coverage_1_1UtilityMapSystematicTask.html" title="gpu_coverage::UtilityMap\lSystematicTask" alt="" coords="273,209,444,250"/>
+<area shape="rect" id="node7" href="$classgpu__coverage_1_1VideoTask.html" title="gpu_coverage::VideoTask" alt="" coords="272,275,445,301"/>
+</map>

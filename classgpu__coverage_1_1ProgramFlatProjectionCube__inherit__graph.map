@@ -1,0 +1,4 @@
+<map id="gpu_coverage::ProgramFlatProjectionCube" name="gpu_coverage::ProgramFlatProjectionCube">
+<area shape="rect" id="node2" href="$classgpu__coverage_1_1AbstractProgramMapProjection.html" title="Abstract superclass for all shader programs projecting panoramas to texture images. " alt="" coords="5,80,215,121"/>
+<area shape="rect" id="node3" href="$classgpu__coverage_1_1AbstractProgram.html" title="Abstract superclass for all shader programs. " alt="" coords="5,5,215,32"/>
+</map>

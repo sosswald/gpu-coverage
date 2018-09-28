@@ -1,0 +1,7 @@
+<map id="gpu_coverage::AbstractProgramMapProjection" name="gpu_coverage::AbstractProgramMapProjection">
+<area shape="rect" id="node3" href="$classgpu__coverage_1_1ProgramCylindrical.html" title="gpu_coverage::ProgramCylindrical" alt="" coords="535,5,756,32"/>
+<area shape="rect" id="node4" href="$classgpu__coverage_1_1ProgramEquirectangular.html" title="gpu_coverage::ProgramEquirectangular" alt="" coords="520,56,771,83"/>
+<area shape="rect" id="node5" href="$classgpu__coverage_1_1ProgramFlatProjection2dArray.html" title="gpu_coverage::ProgramFlat\lProjection2dArray" alt="" coords="554,107,737,149"/>
+<area shape="rect" id="node6" href="$classgpu__coverage_1_1ProgramFlatProjectionCube.html" title="gpu_coverage::ProgramFlat\lProjectionCube" alt="" coords="554,173,737,214"/>
+<area shape="rect" id="node2" href="$classgpu__coverage_1_1AbstractProgram.html" title="Abstract superclass for all shader programs. " alt="" coords="5,85,215,112"/>
+</map>

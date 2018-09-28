@@ -1,0 +1,4 @@
+<map id="gpu_coverage::ProgramEquirectangular" name="gpu_coverage::ProgramEquirectangular">
+<area shape="rect" id="node2" href="$classgpu__coverage_1_1AbstractProgramMapProjection.html" title="Abstract superclass for all shader programs projecting panoramas to texture images. " alt="" coords="26,80,235,121"/>
+<area shape="rect" id="node3" href="$classgpu__coverage_1_1AbstractProgram.html" title="Abstract superclass for all shader programs. " alt="" coords="26,5,235,32"/>
+</map>

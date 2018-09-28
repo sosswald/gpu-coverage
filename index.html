@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>GPU-Accelerated Coverage: GPU-Accelerated Next-Best-View Coverage of Articulated Scenes.</title>
+<title>GPU-Accelerated Coverage: GPU-Accelerated Next-Best-View Coverage of Articulated Scenes</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -24,7 +24,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">GPU-Accelerated Coverage
-   &#160;<span id="projectnumber">0.0.1</span>
+   &#160;<span id="projectnumber">0.1.0</span>
    </div>
    <div id="projectbrief">Compute coverage tours for known environment with articulated objects on GPU</div>
   </td>
@@ -40,6 +40,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li class="current"><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
+      <li><a href="annotated.html"><span>Classes</span></a></li>
+      <li><a href="files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -75,12 +78,123 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <div class="header">
   <div class="headertitle">
-<div class="title">GPU-Accelerated Next-Best-View Coverage of Articulated Scenes. </div>  </div>
+<div class="title">GPU-Accelerated Next-Best-View Coverage of Articulated Scenes </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p>This repository contains the code accompanying our paper on GPU-accelerated coverage of articulated scenes. The code will be published in October 2018 during the conference.</p>
+<div class="textblock"><p>This repository contains the code accompanying our paper on GPU-accelerated coverage of articulated scenes.</p>
+<p><b>Disclaimer: The code in this repository is research code created for a feasibility study. The code is not ready for production and the authors will not provide support. Use at your own risk.</b></p>
 <p>For details on the approach see our paper:</p>
-<p>Stefan Oßwald and Maren Bennewitz: <b>GPU-Accelerated Next-Best-View Coverage of Articulated Scenes.</b> Proceedings of the IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS), 2018. To be published. </p>
+<p>Stefan Oßwald and Maren Bennewitz: <b>GPU-Accelerated Next-Best-View Coverage of Articulated Scenes.</b> Proceedings of the IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS), 2018.</p>
+<h2>License</h2>
+<p>The code is released under the 3-clause BSD license. See <a href="https://github.com/sosswald/gpu-coverage/blob/master/LICENSE">LICENSE</a> for details.</p>
+<h2>Overview of the source code</h2>
+<h3>Algorithms</h3>
+<p>The following table indicates the correspondence between algorithms described in the paper and source code classes.</p>
+<table class="doxtable">
+<tr>
+<th>Algorithm </th><th>Main class </th><th>Description  </th></tr>
+<tr>
+<td>Alg. 1 </td><td><a class="el" href="classgpu__coverage_1_1CostMapRenderer.html">CostMapRenderer</a> </td><td>Renders the 3D scene from a virtual top-down orthographic camera to an occupancy grid map and applies the Jump Flood Algorithm <a href="#ref1">[1]</a> to compute an inflation cost map. </td></tr>
+<tr>
+<td>Alg. 2 </td><td><a class="el" href="classgpu__coverage_1_1BellmanFordXfbRenderer.html">BellmanFordXfbRenderer</a> </td><td>Bellman-Ford algorithm for computing shortest path distances from the robot's current position to all map cells. The implementation does not preserve the actual shortest path. This implementation uses transform feedback buffers (XFB). </td></tr>
+<tr>
+<td>Alg. 3 </td><td><a class="el" href="classgpu__coverage_1_1BellmanFordRenderer.html">BellmanFordRenderer</a> </td><td>Bellman-Ford algorithm for computing shortest path distances from the robot's current position to all map cells. The implementation does not preserve the actual shortest path. This implementation uses a flagging texture similar to the EBellflaging approach described in <a href="#ref2">[2]</a>. </td></tr>
+<tr>
+<td>Alg. 4 </td><td><a class="el" href="classgpu__coverage_1_1VisibilityRenderer.html">VisibilityRenderer</a> </td><td>Computes the region of interest parts visible from a given viewpoint, marks the observed areas in the region of interest textures, and computes the information gain by counting newly observed pixels. </td></tr>
+<tr>
+<td>Alg. 5 </td><td><a class="el" href="classgpu__coverage_1_1PanoEvalRenderer.html">PanoEvalRenderer</a> </td><td>Estimates utility maps based on our spherical panorama heuristic (see the paper for details). </td></tr>
+</table>
+<h3>Additional renderers</h3>
+<p>In addition to the algorithm renderers described above, the following renderers are available:</p>
+<table class="doxtable">
+<tr>
+<th>Main class </th><th>Description  </th></tr>
+<tr>
+<td><a class="el" href="classgpu__coverage_1_1Renderer.html">Renderer</a> </td><td>Renders the 3D scene from an external perspective camera. </td></tr>
+<tr>
+<td><a class="el" href="classgpu__coverage_1_1PanoRenderer.html">PanoRenderer</a> </td><td>Renders a spherical panorama as an unfolded cube, image strip, equirectangular panorama, or cylindrical panorama. </td></tr>
+</table>
+<h3>Main functions and executables</h3>
+<table class="doxtable">
+<tr>
+<th>Executable </th><th>Main </th><th>Description  </th></tr>
+<tr>
+<td>render </td><td><a href="https://github.com/sosswald/gpu-coverage/blob/master/src/main.cpp">main.cpp</a> </td><td>Interactive program rendering the 3D scene and the intermediate outputs of the algorithms. </td></tr>
+<tr>
+<td>headless </td><td><a href="https://github.com/sosswald/gpu-coverage/blob/master/src/headless.cpp">headless.cpp</a> </td><td>Command line program for running tasks (see below). This version uses the EGL backend. </td></tr>
+<tr>
+<td>headless-glfw </td><td><a href="https://github.com/sosswald/gpu-coverage/blob/master/src/headless-glfw.cpp">headless-glfw.cpp</a> </td><td>Command line program for running tasks (see below). This version uses the GLFW backend. </td></tr>
+</table>
+<h3>Tasks available in the headless command line tool</h3>
+<table class="doxtable">
+<tr>
+<th>Task </th><th>Main class </th><th>Description  </th></tr>
+<tr>
+<td>video </td><td><a class="el" href="classgpu__coverage_1_1VideoTask.html">VideoTask</a> </td><td>Renders a video of the external camera view and a spherical panorama to <code>/tmp/</code>. </td></tr>
+<tr>
+<td>hillclimbing </td><td><a class="el" href="classgpu__coverage_1_1HillclimbingTask.html">HillclimbingTask</a> </td><td>Iteratively refines the next best view pose and articulation configuration. </td></tr>
+<tr>
+<td>random </td><td><a class="el" href="classgpu__coverage_1_1RandomSearchTask.html">RandomSearchTask</a> </td><td>Tries random views and articulations to find the next best view. </td></tr>
+<tr>
+<td>utility </td><td><a class="el" href="classgpu__coverage_1_1UtilityMapSystematicTask.html">UtilityMapSystematicTask</a> </td><td>Systematically samples a utility map as ground truth for comparison with our heuristic. </td></tr>
+<tr>
+<td>utilityanimation </td><td><a class="el" href="classgpu__coverage_1_1UtilityAnimationTask.html">UtilityAnimationTask</a> </td><td>Same as above, but renders a video over an articulation animation sequence. </td></tr>
+<tr>
+<td>benchmark </td><td><a class="el" href="classgpu__coverage_1_1BenchmarkTask.html">BenchmarkTask</a> </td><td>Benchmarks the algorithms and records runtime statistics. </td></tr>
+</table>
+<h3>OpenGL wrappers and scene graph nodes</h3>
+<table class="doxtable">
+<tr>
+<th>Class </th><th>Description  </th></tr>
+<tr>
+<td><a class="el" href="classgpu__coverage_1_1Animation.html">Animation</a> </td><td>Animation of a scene graph node, corresponds to Assimp's <code>aiAnimation</code> struct. </td></tr>
+<tr>
+<td><a class="el" href="classgpu__coverage_1_1Bone.html">Bone</a> </td><td>Bone of an object rig, corresponds to Assimp's <code>aiBone</code> struct. </td></tr>
+<tr>
+<td><a class="el" href="classgpu__coverage_1_1CameraOrtho.html">CameraOrtho</a> </td><td>Orthographic camera. </td></tr>
+<tr>
+<td><a class="el" href="classgpu__coverage_1_1CameraPerspective.html">CameraPerspective</a> </td><td>Perspective camera. </td></tr>
+<tr>
+<td><a class="el" href="classgpu__coverage_1_1CameraPanorama.html">CameraPanorama</a> </td><td>Spherical panorama camera modelled as six perspective cameras with 90° opening angle covering the sides of a cube map. </td></tr>
+<tr>
+<td><a class="el" href="classgpu__coverage_1_1Channel.html">Channel</a> </td><td>Animation channel (i.e., the animated property of a node), corresponds to Assimp's <code>aiNode</code>Anim` struct. </td></tr>
+<tr>
+<td><a class="el" href="classgpu__coverage_1_1CoordinateAxes.html">CoordinateAxes</a> </td><td>Renders coordinate axes as three line segments. </td></tr>
+<tr>
+<td><a class="el" href="classgpu__coverage_1_1Dot.html">Dot</a> </td><td>Renders a dot (a mesh consisting of a single point). </td></tr>
+<tr>
+<td><a class="el" href="classgpu__coverage_1_1Image.html">Image</a> </td><td>Class for loading and caching images. OpenCV is used for loading images if available, otherwise only portable pixmaps (PPM) can be parsed. </td></tr>
+<tr>
+<td><a class="el" href="classgpu__coverage_1_1Light.html">Light</a> </td><td>Lamp or light source, corresponds to Assimp's <code>aiLight</code> struct. Lighting is only used for visualization and is not relevant for the coverage algorithms, hence the implementation only supports a single point light source. </td></tr>
+<tr>
+<td><a class="el" href="classgpu__coverage_1_1Material.html">Material</a> </td><td>Mesh material, corresponds to Assimp's <code>aiMaterial</code> struct. </td></tr>
+<tr>
+<td><a class="el" href="classgpu__coverage_1_1Mesh.html">Mesh</a> </td><td>3D mesh, corresponding to Assimp's <code>aiMesh</code> struct. </td></tr>
+<tr>
+<td><a class="el" href="classgpu__coverage_1_1Node.html">Node</a> </td><td>Scene graph node, corresponding to Assimp's <code>aiNode</code> struct. </td></tr>
+<tr>
+<td><a class="el" href="classgpu__coverage_1_1AbstractProgram.html">Programs</a> </td><td>Collection of classes representing shader programs and providing access to shader variables. </td></tr>
+<tr>
+<td><a class="el" href="classgpu__coverage_1_1Scene.html">Scene</a> </td><td>Scene graph, corresponding to Assimp's <code>aiScene</code> struct. </td></tr>
+<tr>
+<td><a class="el" href="classgpu__coverage_1_1Texture.html">Texture</a> </td><td>Wraps an OpenGL texture object. </td></tr>
+</table>
+<h3>Other classes</h3>
+<table class="doxtable">
+<tr>
+<th>Class </th><th>Description  </th></tr>
+<tr>
+<td><a class="el" href="classgpu__coverage_1_1RobotSceneConfiguration.html">RobotSceneConfiguration</a> </td><td>Represents the combined configuration of the robot and the articulation objects. </td></tr>
+<tr>
+<td><a class="el" href="classgpu__coverage_1_1Config.html">Config</a> </td><td>Manages, loads, and stores configuration data. </td></tr>
+<tr>
+<td>Utilities </td><td>Debugging functions and custom exceptions. </td></tr>
+</table>
+<h2>References</h2>
+<ul>
+<li><a class="anchor" id="ref1"></a>[1] R. Guodong, <a href="https://scholarbank.nus.edu.sg/handle/10635/12974">“Jump Flooding Algorithm on graphics hardware and its applications,”</a> Ph.D. dissertation, National University of Singapore, 2007.</li>
+<li><a class="anchor" id="ref2"></a>[2] N. Kaushik and A. Kaushik, “Extended Bellman Ford algorithm with optimized time of computation,” in Advances in Intelligent Systems and Computing. Springer Singapore, 2016, pp. 241–247. </li>
+</ul>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

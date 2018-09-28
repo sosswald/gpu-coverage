@@ -1,0 +1,5 @@
+<map id="gpu_coverage::AbstractCamera" name="gpu_coverage::AbstractCamera">
+<area shape="rect" id="node2" href="$classgpu__coverage_1_1CameraOrtho.html" title="Orthographic projection camera. " alt="" coords="5,80,195,107"/>
+<area shape="rect" id="node3" href="$classgpu__coverage_1_1CameraPerspective.html" title="Perspective projection camera. " alt="" coords="219,80,445,107"/>
+<area shape="rect" id="node4" href="$classgpu__coverage_1_1CameraPanorama.html" title="Omnidirectional panorama camera. " alt="" coords="224,155,440,181"/>
+</map>

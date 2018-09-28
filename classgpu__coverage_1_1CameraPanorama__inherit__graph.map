@@ -1,0 +1,4 @@
+<map id="gpu_coverage::CameraPanorama" name="gpu_coverage::CameraPanorama">
+<area shape="rect" id="node2" href="$classgpu__coverage_1_1CameraPerspective.html" title="Perspective projection camera. " alt="" coords="5,80,232,107"/>
+<area shape="rect" id="node3" href="$classgpu__coverage_1_1AbstractCamera.html" title="Abstract superclass for all cameras. " alt="" coords="15,5,222,32"/>
+</map>
